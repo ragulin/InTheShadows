@@ -14,7 +14,7 @@ public class MainMenu implements Screen {
     public MainMenu(final InTheShadows game) {
         this.game = game;
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, 640, 480);
+        camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 
     @Override
@@ -30,9 +30,15 @@ public class MainMenu implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.font.draw(game.batch, "In the shadows!", 100, 150);
-        game.font.draw(game.batch, "Find the exit, before your flashlight runs out of batteries ", 100, 100);
-        game.font.draw(game.batch, "Control the player with the arrow keys, toggle the flashlight with space", 100, 50);
+        game.font.draw(game.batch, "In the shadows!",
+                Gdx.graphics.getWidth() / 2 - 50f,
+                Gdx.graphics.getHeight() - 100f);
+        game.font.draw(game.batch, "Find the exit, before your flashlight runs out of batteries.",
+                Gdx.graphics.getWidth() / 2 - 180f,
+                Gdx.graphics.getHeight() - 240f);
+        game.font.draw(game.batch, "Control the player with the arrow keys and toggle the flashlight with space",
+                Gdx.graphics.getWidth() / 2 - 220,
+                Gdx.graphics.getHeight() - 260f);
         game.batch.end();
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {

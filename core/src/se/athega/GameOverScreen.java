@@ -40,8 +40,12 @@ public class GameOverScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.font.draw(game.batch, "Oh noes! :( You ran out of battery", 100, 150);
-        game.font.draw(game.batch, "Press 'Space' to give it another try.", 100, 100);
+        game.font.draw(game.batch, "Oh noes! :( You ran out of battery.",
+                Gdx.graphics.getWidth() / 2 - 120f,
+                Gdx.graphics.getHeight() / 2 + 30f);
+        game.font.draw(game.batch, "Press 'Space' to give it another try.",
+                Gdx.graphics.getWidth() / 2 - 120f,
+                Gdx.graphics.getHeight() / 2 + 10f);
         game.batch.end();
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {

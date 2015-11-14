@@ -43,10 +43,16 @@ public class CompletedScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.font.draw(game.batch, "Hurray!" , 100, 200);
+        game.font.draw(game.batch, "Hurray!" ,
+                Gdx.graphics.getWidth() / 2 - 20f,
+                Gdx.graphics.getHeight() / 2 + 30f);
         game.font.draw(game.batch, "You found the exit and completed the level in a smashing " +
-                completedTimeInsSeconds + " seconds.", 100, 150);
-        game.font.draw(game.batch, "Press 'Space' to play again", 100, 100);
+                completedTimeInsSeconds + " seconds.",
+                Gdx.graphics.getWidth() / 2 - 200f,
+                Gdx.graphics.getHeight() / 2);
+        game.font.draw(game.batch, "Press 'Space' to play again",
+                Gdx.graphics.getWidth() / 2 - 80f,
+                Gdx.graphics.getHeight() / 2 - 20f);
         game.batch.end();
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
