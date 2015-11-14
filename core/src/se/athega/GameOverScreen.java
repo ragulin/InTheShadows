@@ -3,6 +3,7 @@ package se.athega;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
@@ -10,19 +11,29 @@ public class GameOverScreen implements Screen {
 
     private final InTheShadows game;
     private final OrthographicCamera camera;
+    private final Sound batteriesOutSound;
+    private final long start;
 
     public GameOverScreen(final InTheShadows game) {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 640, 480);
+        batteriesOutSound = Gdx.audio.newSound(Gdx.files.internal("batteries_out.wav"));
+        start = System.currentTimeMillis();
     }
+
     @Override
     public void show() {
-
+        batteriesOutSound.play();
     }
 
     @Override
     public void render(float delta) {
+        if (System.currentTimeMillis() % 2 == 0 && System.currentTimeMillis() - start <= 1000) {
+            Gdx.gl.glClearColor(255f, 0, 0, 1);
+        } else {
+            Gdx.gl.glClearColor(0, 0, 0, 1);
+        }
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         camera.update();
@@ -61,6 +72,6 @@ public class GameOverScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        batteriesOutSound.dispose();
     }
 }

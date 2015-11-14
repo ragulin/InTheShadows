@@ -12,10 +12,10 @@ public class CompletedScreen implements Screen {
     private final InTheShadows game;
     private final OrthographicCamera camera;
     private final Sound foundExitSound;
-    private long completedTimeInsSeconds;
-    private long start;
+    private final long completedTimeInsSeconds;
+    private final long start;
 
-    public CompletedScreen(InTheShadows game, final long startTime) {
+    public CompletedScreen(final InTheShadows game, final long startTime) {
         this.game = game;
         this.completedTimeInsSeconds = getCompletedTimeInSeconds(startTime);
         foundExitSound = Gdx.audio.newSound(Gdx.files.internal("success.wav"));
