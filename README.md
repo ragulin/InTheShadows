@@ -1,6 +1,7 @@
 # In the shadows
 A tiny game where the objective is to find the exit before you run of of flashlight batteries. Move the player with 
 the arrow keys and toggle the flashlight with space.
+![Screenshot](screenshot.png)
 
 ## What is this?
 My first experiment with [libGDX](https://libgdx.badlogicgames.com/), [Box2D](http://box2d.org/) 
