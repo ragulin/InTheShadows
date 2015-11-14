@@ -146,9 +146,21 @@ public class GameScreen implements Screen, InputProcessor {
 
     private void createObstacles() {
         for (int i = 0; i <= NUMBER_OF_OBSTACLES; i++) {
-            Obstacle currentObstacle = new Obstacle(world);
-            obstacles.add(currentObstacle);
+            obstacles.add(createObstacle());
         }
+    }
+
+    private Obstacle createObstacle() {
+        Obstacle currentObstacle = new Obstacle(world);
+        for (int i = 0; i < obstacles.size; i++) {
+            Obstacle other = obstacles.get(i);
+            if (currentObstacle.overlaps(other)) {
+                world.destroyBody(currentObstacle.getBody());
+                currentObstacle = createObstacle();
+                break;
+            }
+        }
+        return currentObstacle;
     }
 
     @Override

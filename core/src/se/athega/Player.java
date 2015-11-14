@@ -51,6 +51,7 @@ public class Player extends Entity {
                 (bodyDef.position.y) - sprite.getHeight() / 2);
 
         body = world.createBody(bodyDef);
+        body.setTransform(body.getPosition(), MathUtils.random(0, MathUtils.PI2));
 
         sprite.setRotation(body.getAngle() * MathUtils.radiansToDegrees);
 

@@ -1,14 +1,14 @@
 package se.athega;
 
-import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.physics.box2d.World;
 
 public class Obstacle extends Entity {
 
-    private static final float WIDTH = 40f;
-    private static final float HEIGHT = 20f;
+    private static final float WIDTH = 80f;
+    private static final float HEIGHT = 40f;
 
     public Obstacle(final World world) {
-        body = createStaticBody(world, "boulder.png", WIDTH, HEIGHT);
+        body = createStaticBody(world, "boulder.png", WIDTH / 2, HEIGHT / 2);
     }
 
     public int getX() {
@@ -27,7 +27,5 @@ public class Obstacle extends Entity {
 
     private boolean rangeIntersect(int min0, int max0, int min1, int max1)  {
         return Math.max(min0, max0) >= Math.min(min1, max1) && Math.min(min0, max0) <= Math.max(min1, max1);
-
     }
-
 }
