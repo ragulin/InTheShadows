@@ -3,7 +3,7 @@ package se.athega;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
@@ -11,12 +11,14 @@ public class CompletedScreen implements Screen {
 
     private final InTheShadows game;
     private final OrthographicCamera camera;
+    private final Sound foundExitSound;
     private long completedTimeInsSeconds;
     private long start;
 
     public CompletedScreen(InTheShadows game, final long startTime) {
         this.game = game;
         this.completedTimeInsSeconds = getCompletedTimeInSeconds(startTime);
+        foundExitSound = Gdx.audio.newSound(Gdx.files.internal("success.wav"));
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 640, 480);
         start = System.currentTimeMillis();
@@ -24,7 +26,7 @@ public class CompletedScreen implements Screen {
 
     @Override
     public void show() {
-
+        foundExitSound.play();
     }
 
     @Override
@@ -75,7 +77,7 @@ public class CompletedScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        foundExitSound.dispose();
     }
 
     public long getCompletedTimeInSeconds(final long startTime) {

@@ -1,14 +1,17 @@
 package se.athega;
 
 import box2dLight.ConeLight;
+import box2dLight.PointLight;
 import box2dLight.RayHandler;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import box2dLight.PointLight;
-import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 
 public class Player extends Entity {
 
@@ -57,6 +60,7 @@ public class Player extends Entity {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = box;
         body.createFixture(fixtureDef);
+
         initLight();
     }
 

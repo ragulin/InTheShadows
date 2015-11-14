@@ -13,3 +13,4 @@ and [Box2DLights](https://github.com/libgdx/box2dlights). Developed during the [
 * Player: [http://opengameart.org/content/player-characters-2](http://opengameart.org/content/player-characters-2)
 * Background: [http://opengameart.org/content/medievalbrick](http://opengameart.org/content/medievalbrick)
 * Music: [http://freesound.org/people/tyops/sounds/234226/](http://freesound.org/people/tyops/sounds/234226/)
+* Door found sound: [http://freesound.org/people/fins/sounds/171671/](http://freesound.org/people/fins/sounds/171671/)
